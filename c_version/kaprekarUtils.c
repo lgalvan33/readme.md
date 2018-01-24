@@ -25,19 +25,19 @@
 int isKaprekar(int n) {
 
   if(n < 1) {
-    return false;
+    return 0;//return false is not a known valid command, we change this to return 0;//
   }
 
   int i;
   long square = n * (long) n;
-  int numDigits = (int) log10(n) + 1;
-  long modulus = 0;
+  int numDigits = (int) log10(square) + 1;//change log10(n) to log(square) since it's the square we want//
+  long modulus = 1;// change 0 to a 1 //
   long first, second;
 
   //for each possible "split" of the square...
-  for(i=1; i<=numberOfDigits; i++) {
+  for(i=1; i<=numDigits; i++) {
     //increase the modulus by a factor of 10
-    modulous *= 10;
+    modulus  *= 10;// modulus was previously mispelled causing an error, fix spelling good things happen//
 
     //split the square into two parts
     first = square / modulus;
